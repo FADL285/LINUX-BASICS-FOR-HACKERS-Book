@@ -10,6 +10,7 @@
 | [Chapter #1](#chapter-1) | GETTING STARTED WITH THE BASICS |
 | [Chapter #2](#chapter-2) | TEXT MANIPULATION |
 | [Chapter #3](#chapter-3) | ANALYZING AND MANAGING NETWORKS |
+| [Chapter #4](#chapter-4) | ADDING AND REMOVING SOFTWARE |
 
 ---
 
@@ -275,5 +276,66 @@ a logical filesystem instead. At the very top of the filesystem structure is / (
   can determine which IP address your browser goes to when you enter
 
   ex: `sudo nano /etc/hosts` < Then add your own IP address >
+
+---
+# Chapter #4
+
+> This chapter will teach you to add, remove, and update software, and how to keep your system streamlined.
+
+## Commands
+
+***📎 USING APT TO HANDLE SOFTWARE***
+
+- **Searching for a Package :** check whether the package you need is available from your repository using ```apt-cache search keyword```
+
+  ex: `apt-cache search snort` => Searching the system with apt-cachefor Snort
+
+- **Adding a Package :** To install a piece of software from your operating system’s default repository in the terminal, use the ```apt-get``` command, followed by the keyword ```install``` and then the name of the package you want to install.
+
+  syntax: ```apt-­get install packagename```
+
+  ex: `apt-­get install snort` => Installing Snort with apt-get install
+
+- **Removing a Package :** To remove software, we use ```apt-get``` with the ```remove``` option, followed by the name of the software to remove
+
+  syntax: ```apt­-get remove packagename```
+
+  ex: ```apt-­get remove snort``` => Removing Snort with apt-get remove
+
+  **TO KNOW**: *The remove command doesn’t remove the configuration files, which means you can reinstall the same package in the future without reconfiguring.*
+
+  *If we want to remove the configuration files at the same time as the package, we use the purge option*
+
+  ex: ```apt-­get purge snort``` => Removing Snort and the accompanying configuration files with apt-get purge
+
+- **Updating Packages :** updates the list of packages available for download from the repository, but they don't install automatically, we need to upgrade them.
+
+  syntax: ```apt­-get update``` => Updating all out­of­date packages
+
+- **Upgrading Packages :** To upgrade the existing packages on your system, use ```apt-get upgrade```. This command will upgrade every package on your system that apt knows about.
+
+  syntax: ```apt­-get upgrade``` => Upgrading all out­of­date packages
+
+***📎 ADDING REPOSITORIES TO YOUR SOURCES.LIST FILE***
+
+each distribution of linux has it's own repository that contain the packages and softwares we can add another repository to our source.list files
+
+> leafpad/etc/apt/sources.list
+
+we can add another repository by editing this file
+
+***📎 USING A GUI-BASED INSTALLER***
+
+we can use GUI installer instead of terminal
+you can use synaptic tool to do this.
+
+***📎 INSTALLING SOFTWARE WITH GIT***
+
+Sometimes the software you want isn’t available in any of the repositories—especially if it’s brand new—but it may be available on [github](https://www.github.com/), a site that allows developers to share their software with others to download, use, and provide feedback.
+
+Once you’ve found the software on github, you can install it from the terminal by
+entering the git clone command followed by its github URL.
+
+ex: ```git clone https://www.github.com/repoName```
 
 ---
