@@ -11,6 +11,8 @@
 | [Chapter #2](#chapter-2) | TEXT MANIPULATION |
 | [Chapter #3](#chapter-3) | ANALYZING AND MANAGING NETWORKS |
 | [Chapter #4](#chapter-4) | ADDING AND REMOVING SOFTWARE |
+| [Chapter #5](#chapter-5) | CONTROLLING FILE AND DIRECTORY PERMISSIONS |
+| [Chapter #6](#chapter-6) | PROCESS MANAGEMENT |
 
 ---
 
@@ -280,7 +282,7 @@ a logical filesystem instead. At the very top of the filesystem structure is / (
 ---
 # Chapter #4
 
-> This chapter will teach you to add, remove, and update software, and how to keep your system streamlined.
+> This chapter will teach you how to add, remove, and update software, and how to keep your system streamlined.
 
 ## Commands
 
@@ -337,5 +339,118 @@ Once you’ve found the software on github, you can install it from the terminal
 entering the git clone command followed by its github URL.
 
 ex: ```git clone https://www.github.com/repoName```
+
+---
+
+# Chapter #5
+
+> This chapter will teach you how to manipulate file and directory permissions to control who can access what. You’ll also learn some privilege escalation techniques.
+
+
+## 📎 DIFFERENT TYPES OF USERS
+
+in Linux, the root user is allpowerful.
+The root user can do basically anything on the system.
+Other users on the system have more limited capabilities and permissions and almost never have the access that the root user has
+
+there is three types of users:
+
+- owner
+- group
+- others
+
+## 📎 GRANTING PERMISSIONS
+
+Each and every file and directory must be allocated a particular level of permission for
+the different identities using it. The three levels of permission are as follows:
+
+- **r** Permission to read.
+- **w** Permission to write.
+- **x** Permission to execute.
+
+## Commands & Summary
+
+- **Granting Ownership to an Individual User:** Move ownership of a file to a different user so that they have the ability to control
+permissions, we use ```chown``` command
+
+  syntax: ```chown newOwner fileName``` => change FileName Owner to newOwner
+
+- **Granting Ownership to a Group:** Transfer ownership of a file from one group to another, we can use the ```chgrp``` command
+
+  syntax: ```chgrp newGroup fileName``` => change FileName Group to newGroup
+
+- **📎 CHECKING PERMISSIONS:**
+
+  To find out what permissions are granted to what users for a file or directory, use the ls command with the –l to display the contents of a directory in long format this display permissions.
+
+  ```ls -l``` this will display:
+  
+  1. file type
+  2. permissions on the file for owner, groups, and users, respectively
+  3. The number of links
+  4. The owner of the file
+  5. The size of the file in bytes
+  6. When the file was created or last modified
+  7. The name of the file
+
+- **📎 CHANGING PERMISSIONS:**
+  We have 3 types of permissions for for each type of users **UGO == (User [owner],Group,Others)**
+
+  | Octal Notation | Permissions | Symbolic Representation |
+  | :---: |      :---:     |    :---:   |
+  |   0   | No Permissions |     ---    |
+  |   1   | Execute Permission only |     --x    |
+  |   2   | Write Permission only |     -w-    |
+  |   3   | Write & Execute Permissions |     -wx    |
+  |   4   | Read Permission only |     r--    |
+  |   5   | Read & Execute Permissions |     r-x    |
+  |   6   | Read & Write Permissions |     rw-    |
+  |   7   | Read, Write & Execute Permissions |     rwx    |
+
+  **We can change the permissions with ```chmod``` command by ***2 Ways:*****
+    1. **Changing Permissions with Decimal Notation:**
+      Add to each user number refer to the permissions you need. <br/> <br/>
+      ex: ```chmod 774 fileName``` => Give all permissions to owner, group and only read permission to others users.
+
+    1. **Changing Permissions with UGO:**
+      change permissions to specific user by add type of user **(UGO)**
+      <br/>
+      synax: ```chmod userSymbol operator(+ or -) PermissionSymbol```
+      <br/> <br/>
+      ex: ```chmod g-wx fileName``` => Remove write & execute permissions from fileName Group.
+
+- **📎 DEFAULT PERMISSIONS WITH MASKS:**
+  
+  By default any new file & directory take permissions based on your **umask value** which saved in ***/home/username/.profile***
+
+  you can know this value by ```umask``` command
+
+  **suppose you find it 022**, then your default permission is 644 for files and 755 for directories.
+
+  if you want to change this value chang umask value in this file: ***/home/username/.profile***
+
+- **📎 Granting Temporary Root Permissions with SUID:**
+  the SUID bit says that any **user can <u>execute</u> the file with the permissions of the owner** but those permissions don’t extend beyond the use of that file.
+
+  To set the SUID bit, enter a **4** before the regular permissions, so a file with a new resulting permission of 644 is represented as <u>4644</u> when the SUID bit is set.
+
+- **📎 Granting the Root User’s Group Permissions SGID:**
+  the SGID bit says that any **user can <u>execute</u> the file with the permissions of <u> the owner group</u>** but those permissions don’t extend beyond the use of that file.
+
+  To set the SGID bit, enter a **2** before the regular permissions, so a file with a new resulting permission of 644 is represented as <u>2644</u> when the SGID bit is set.
+
+- **📎 The Outmoded Sticky Bit:**
+
+  The sticky bit is a permission bit that you can set on a directory to allow a user to delete or rename files within that directory.
+
+  However, the sticky bit is a legacy of older Unix systems, and modern systems (like Linux) ignore it.
+
+- **📎 Find Files that takes SUID or SGID:**
+
+  use find to get this information
+
+  ex: ```find / -user root -perm -4000``` => find files with SUID in root directory.
+
+  ex: ```find / -user root -perm -2000``` => find files with SGID in root directory.
 
 ---
