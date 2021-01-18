@@ -211,33 +211,43 @@ a logical filesystem instead. At the very top of the filesystem structure is / (
 
 ## Commands
 
-- **Taking the Head :** view the beginning of a file. By default, this command ( `head` ) displays the first 10 lines of a file. <br/>
-  ex:- `head file.txt` <br/>
-  If you want to see more or fewer than the default 10 lines, enter the quantity you want with the dash (-) switch after the call to `head` and before the filename. <br/>
-  ex:- `head -5 file.txt`
+- **Taking the Head :** view the beginning of a file. By default, this command ( `head` ) displays the first 10 lines of a file.
 
-- **Grabbing That Tail :** The `tail` command is similar to the `head` command, but it’s used to view the last lines of a file. <br/>
-  ex:- `tail file.txt`
+      $ head file.txt
+
+  If you want to see more or fewer than the default 10 lines, enter the quantity you want with the dash (-) switch after the call to `head` and before the filename. <br/>
+  
+      $ head -5 file.txt
+
+- **Grabbing That Tail :** The `tail` command is similar to the `head` command, but it’s used to view the last lines of a file.
+  
+      $ tail file.txt
 
 - **Numbering the Lines :** To display a file with line numbers, we use the `nl` (number lines) command. <br/>
-  ex:- `nl file.txt`
+      
+      $ nl file.txt
 
 - **FILTERING TEXT WITH _GREP_ :** The grep filter searches a file for a particular pattern of characters, and displays all lines that contain that pattern <br/>
-  ex:- `ps aux | grep -i "apache"`
+  
+      $ ps aux | grep -i "apache"
 
 - **USING SED TO FIND AND REPLACE :** The sedcommand lets you search for occurrences of a word or a text pattern and then perform some action on it.
 
   1. Find a word and replace it with a new one and save the result in a new file <br/>
-     ex:- `sed s/oldWord/newWord/g searchedFileName > newFileName`
+
+          $ sed s/oldWord/newWord/g searchedFileName > newFileName
 
   2. Find a word and replace it on the same file <br/>
-     ex:- `sed -i s/oldWord/newWord/g searchFileName`
+     
+          $ sed -i s/oldWord/newWord/g searchFileName
 
 - **Controlling the Display with _more_ :** The `more` command displays a page of a file at a time and lets you page down through it using the ENTER key. <br/>
-  ex:- `more fileName`
+    
+      $ more fileName
 
 - **Displaying and Filtering with _less_ :** Less is a command line utility that displays the contents of a file or a command output, one page at a time. It is similar to more, but has more advanced features and allows you to search and navigate both forward and backward through the file. <br/>
-  ex:- `ps aux | less`
+  
+      $ ps aux | less
 
 ---
 
@@ -255,15 +265,15 @@ a logical filesystem instead. At the very top of the filesystem structure is / (
 
 - **CHECKING WIRELESS NETWORK DEVICES WITH IWCONFIG :** `iwconfig` is similar to ifconfig, but is dedicated to the wireless interfaces. It is used to set the parameters of the network interface that are specific to the wireless operation (the wireless frequency, for example). `iwconfig` may also be used to display those parameters, and the wireless statistics
 
-  ex: `iwconfig`
+      $ iwconfig
 
 - **Assigning New IP Addresses from the DHCP Server :** The DHCP protocol allows a host to contact a central server which maintains a list of IP addresses which may be assigned on one or more subnets. A DHCP client may request an address from this pool, and then use it on a temporary basis for communication on network. The DHCP protocol also provides a mechanism whereby a client can learn important details about the network to which it is attached, such as the location of a default router, the location of a name server, etc.
 
-  ex: `dhclient eth0`
+      $ dhclient eth0
 
 - **Examining DNS with dig :** The `dig` command in Linux is used to gather DNS information. It stands for Domain Information Groper, and it collects data about Domain Name Servers. The `dig` command is helpful for diagnosing DNS problems, but is also used to display DNS information.
 
-  ex: `dig www.cisco.com`
+      $ dig www.cisco.com
 
 - **Changing Your DNS Server :** In some cases, you may want to use another DNS server. To do so, you’ll edit a plaintext
   file named `/etc/resolv.conf` on the system. Open that file in a text editor. Then, on your command line, enter the precise name of your editor followed by the location of the file and the filename.
@@ -338,7 +348,7 @@ Sometimes the software you want isn’t available in any of the repositories—e
 Once you’ve found the software on github, you can install it from the terminal by
 entering the git clone command followed by its github URL.
 
-ex: ```git clone https://www.github.com/repoName```
+    $ git clone https://www.github.com/repoName
 
 ---
 
@@ -452,5 +462,166 @@ permissions, we use ```chown``` command
   ex: ```find / -user root -perm -4000``` => find files with SUID in root directory.
 
   ex: ```find / -user root -perm -2000``` => find files with SGID in root directory.
+
+---
+
+# Chapter #6
+
+> This chapter will teach you how to manage services, including starting and stopping processes and allocating resources to give you greater control.
+
+## Types of Processes in Linux
+
+In Linux processes can be of two types:
+
+- Foreground Processes:
+
+  depend on the user for input
+  also referred to as interactive processes.
+
+- Background Processes:
+
+  run independently of the user referred to as non-interactive or automatic processes.
+
+## Process States in Linux
+
+A process in Linux can go through different states after it’s created and before it’s terminated. 
+
+These states are:
+
+- **Running:** 
+
+  A process in running state means that it is running or it’s ready to run.
+
+- **Sleeping:** 
+
+  The process is in a sleeping state when it is waiting for a resource to be available.
+
+  A process in Interruptible sleep will wakeup to handle signals, whereas a process in Uninterruptible sleep will not
+
+- **Stopped:** 
+
+  A process enters a stopped state when it receives a stop signal.
+
+- **Zombie:**
+
+  Zombie state is when a process is dead but the entry for the process is still present in the table.
+
+## Different Commands for Process Management in Linux
+
+- **📎 The top Command for Mananging Linux Processes:**
+
+  To track the running processes on your machine you can use the ```top``` command.
+
+      $ top
+
+  ![Top Command Result](img/top-command.png)
+
+  Top command displays a list of processes that are running in real-time along with their memory and CPU usage. Let’s understand the output a little better:
+
+  - **PID**: Unique Process ID given to each process.
+
+  - **User**: Username of the process owner.
+
+  - **PR:** Priority given to a process while scheduling.
+
+  - **NI**: <u>nice</u> value of a process.
+
+  - **VIRT**: Amount of virtual memory used by a process.
+
+  - **RES**: Amount of physical memory used by a process.
+
+  - **SHR**: Amount of memory shared with other processes.
+
+  - **S**: state of the process
+
+    - **D** = uninterruptible sleep
+    - **R** = running
+    - **S** = sleeping
+    - **T** = traced or stopped
+    - **Z** = zombie
+
+  - **%CPU**: Percentage of CPU used by the process.
+
+  - **%MEM**: Percentage of RAM used by the process.
+
+  - **TIME+**: Total CPU time consumed by the process.
+
+  - **Command**: Command used to activate the process.
+
+- **📎 ps command:**
+  
+  ```ps``` command is short for 'Process Status'. It displays the currently-running processes. However, unlike the top command, the output generated is not in realtime.
+
+      $ ps
+
+  ![ps command result](img/ps-command.png)
+
+  The terminology is as follows :
+
+    |  Output  |   Meaning   |
+    | -------- | ----------- |
+    |  **PID** | process ID  |
+    | **TTY**  | terminal type |
+    | **TIME**  | total time the process has been running |
+    | **CMD**  | name of the command that launches the process |
+
+    <br />
+    <br />
+
+    To get more information using ps command use:
+
+      $ ps -u
+
+    <br />
+
+    To show all processes running on the system for all users using ps command use:
+
+      $ ps aux
+
+    ![ps aux command result](img/psaux-command.png)
+
+<br />
+
+## Stop a process
+
+To stop a process in Linux, use the ```kill command```. kill command sends a signal to the process.
+
+There are different types of signals that you can send. However, the most common one is ```kill -9``` which is **'SIGKILL'**.
+
+You can list all the signals using:
+
+    $ kill -L
+
+The default signal is 15, which is **SIGTERM**. Which means if you just use the kill command without any number, it sends the SIGTERM signal.
+
+The syntax for killing a process is:
+
+    $ kill [pid]
+
+Alternatively you can also use :
+
+    $ kill -9 [pid]
+
+This command will send a ‘SIGKILL’ signal to the process. This should be used in case the process ignores a normal kill request.
+
+To Know **PID** use ```pidof command```
+
+    $ pidof [processName]
+
+<br />
+
+## Change priority of a process
+
+In Linux, you can prioritize between processes. The priority value for a process is called the ‘Niceness’ value. Niceness value can range from –20 to 19. 0 is the default value.
+
+The fourth column in the output of top command is the column for niceness value.
+
+To start a process and give it a nice value other than the default one, use:
+
+    $ nice -n [value] [process name]
+
+To change nice value of a process that is already running use:
+
+    $ renice [value] -p 'PID'
 
 ---
