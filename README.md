@@ -13,6 +13,7 @@
 | [Chapter #4](#chapter-4) | ADDING AND REMOVING SOFTWARE |
 | [Chapter #5](#chapter-5) | CONTROLLING FILE AND DIRECTORY PERMISSIONS |
 | [Chapter #6](#chapter-6) | PROCESS MANAGEMENT |
+| [Chapter #7](#chapter-7) | MANAGING USER ENVIRONMENT VARIABLES |
 
 ---
 
@@ -623,5 +624,113 @@ To start a process and give it a nice value other than the default one, use:
 To change nice value of a process that is already running use:
 
     $ renice [value] -p 'PID'
+
+---
+
+# Chapter #7
+
+> This chapter will teach you how to manage environment variables for optimal performance, convenience, and even stealth. You’ll find and filter variables, change your PATH variable, and create new environment variables.
+
+Environment variables are valuable bits of information, and they can be manipulated to enhance and change your user experience.
+
+## Types of variables
+
+- **Environment**: Environment
+variables are system wide variables built into your system and interface that control the way your system looks, acts, and “feels” to the user, and they are inherited by any child shells or processes.
+
+  Environment variables are always uppercase
+
+- **Shell**: Shell variables, on the other hand, are typically listed in lowercase and are only valid in the shell they are set in.
+
+## Commands
+
+- **VIEWING ENVIRONMENT VARIABLES**: 
+
+    1. **env Command**
+
+        You can view all your default environment variables by entering env into your terminal from any directory.
+
+            $ env
+
+        Display all default environment variables
+
+        <br />
+
+    2. **set Command**
+
+        To view all environment variables, including shell variables, local variables, and shell functions such as any user defined variables and command aliases, use the set command.
+
+        This command will list all environment variables unique to your system, which in most cases will give you an output so long you won’t be able to view it all on a single screen.
+
+        You can request to view each variable, line by line, in a more accessible fashion using set and piping it to the more command
+
+            $ set | more
+
+- **Filtering for Particular Variables**
+  
+  you can use the filtering command ``grep`` to find your variable of interest
+
+      $ set | grep HISTSIZE
+
+- **Changing Variable Values for a Session**
+
+  you can change variable value in the session you use by entering the variable name & value
+
+      // Values can be assign by different ways ex:-
+
+      $ KEY=value
+      $ KEY="Some other value"
+      $ KEY=value1:value2
+
+  **Note:** that change only occurs in that particular environment; in this case, that environment is the bash shell session. This means that when you close the terminal, any changes you made are lost
+
+- **Making Variable Value Changes Permanent**
+
+  If you want to make the changes permanent, you need to use the ```export``` command.
+  
+      $ export name=[value]
+
+- **CHANGING YOUR SHELL PROMPT**
+
+  Your shell prompt, another environment variable, provides you with useful information such as the user you’re operating as and the directory in which you’re currently working.
+
+  default shell prompt in Kali takes the following format:
+
+    - as a normal user:
+
+          username@hostname:current_directory
+
+    - as a root user:
+
+          root@hostname:current_directory
+
+  You can change the name in the default shell prompt by setting the value for the ```PS1``` variable.
+
+      $ PS1="PROMPT Shell Changed: "
+
+- **CHANGING YOUR PATH**
+
+  the most important variables in your environment is your PATH variable, which controls where on your system your shell will look for commands you enter, such as cd, ls, and echo. Most commands are located in the sbin or bin subdirectory.
+
+  You can find out which directories are stored in your PATH variable by this command
+
+      $ echo $PATH
+
+  You can add to Path Variables another value by this command
+
+      $ PATH=$PATH:/root/dirName
+
+
+- **CREATING A USER-DEFINED VARIABLE**
+
+  You can create your own custom, user defined variables in Linux by simply assigning a value to a new variable that you name.
+
+      $ MYVARIABLE="THEVALUE"
+
+- **Deleting A VARIABLE**
+
+  If you want to delete this new variable, or any variable, use the unset command
+
+      $ unset MYVARIABLE
 
 ---
