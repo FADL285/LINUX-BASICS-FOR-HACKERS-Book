@@ -7,7 +7,8 @@ Use the `locate` command to find all the `rsyslog` files.
 ---
 
 ```shell
-m-fadl@Fadl:~$ locate rsyslog
+┌──(m-fadl㉿Fadl)-[~]
+└─$  locate rsyslog
 /etc/rsyslog.conf
 /etc/rsyslog.d
 /etc/init.d/rsyslog
@@ -35,13 +36,15 @@ Open the `rsyslog.conf` file and change your log rotation to one week.
 ---
 
 ```shell
-m-fadl@Fadl:~$ vi /etc/rsyslog.conf
+┌──(m-fadl㉿Fadl)-[~]
+└─$  vi /etc/rsyslog.conf
 
 --snip--
 ```
 
 ```shell
-m-fadl@Fadl:~$ vi /etc/logrotate.conf
+┌──(m-fadl㉿Fadl)-[~]
+└─$  vi /etc/logrotate.conf
 
 --snip--
 ```
@@ -55,9 +58,10 @@ Disable logging on your system. Investigate what is logged in the file `/var/log
 ---
 
 ```shell
-root@Fadl:/# service rsyslog stop
+┌──(root💀Fadl)-[~]
+└─# service rsyslog stop
 
-Warning: Stopping rsyslog.service, but it can still be 
+Warning: Stopping rsyslog.service, but it can still be
 ..........
 ..........
 ```
@@ -71,12 +75,14 @@ Use the `shred` command to shred and delete all your `kern` log files.
 ---
 
 ```shell
-root@Fadl:/# cat /etc/rsyslog.conf | grep kern
+┌──(root💀Fadl)-[~]
+└─# cat /etc/rsyslog.conf | grep kern
 
 module(load="imklog")   # provides kernel logging support
 kern.*                          -/var/log/kern.log
 
-root@Fadl:/# shred -f -n 10 /var/log/kern.log
+┌──(root💀Fadl)-[~]
+└─# shred -f -n 10 /var/log/kern.log
 ```
 
 ---

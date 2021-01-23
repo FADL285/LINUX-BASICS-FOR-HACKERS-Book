@@ -7,7 +7,8 @@ Select a directory and run a long listing on it. Note the permissions on the fil
 ---
 
 ```shell
-m-fadl@Fadl:~$ ls -l
+┌──(m-fadl㉿Fadl)-[~]
+└─$  ls -l
 
 total 40
 drwxr-xr-x 2 m-fadl m-fadl 4096 Sep  6 12:48 Desktop
@@ -31,13 +32,19 @@ Select a file you don't have permission to execute and give yourself execute per
 ---
 
 ```shell
-m-fadl@Fadl:~$ chmod 777 ~/newfile
-m-fadl@Fadl:~$ ls -l ~/newfile
+┌──(m-fadl㉿Fadl)-[~]
+└─$  chmod 777 ~/newfile
+
+┌──(m-fadl㉿Fadl)-[~]
+└─$  ls -l ~/newfile
 
 -rwxrwxrwx 1 m-fadl m-fadl 43 Sep  6 13:41 /home/m-fadl/newfile
 
-m-fadl@Fadl:~$ chmod g-w,o-wx ~/newfile
-m-fadl@Fadl:~$ ls -l ~/newfile
+┌──(m-fadl㉿Fadl)-[~]
+└─$  chmod g-w,o-wx ~/newfile
+
+┌──(m-fadl㉿Fadl)-[~]
+└─$  ls -l ~/newfile
 
 -rwxr-xr-- 1 m-fadl m-fadl 43 Sep  6 13:41 /home/m-fadl/newfile
 ```
@@ -51,8 +58,11 @@ Choose another file and change its ownership using `chown`.
 ---
 
 ```shell
-root@Fadl:/# chown root ./newfile
-root@Fadl:/# ls -l ./newfile
+┌──(root💀Fadl)-[~]
+└─# chown root ./newfile
+
+┌──(root💀Fadl)-[~]
+└─# ls -l ./newfile
 
 -rwxrwxrwx 1 root m-fadl 43 Sep  6 13:41 ./newfile
 ```
@@ -66,7 +76,8 @@ Use the `find` command to find all files with the `SGID` bit set.
 ---
 
 ```shell
-root@Fadl:/# find / -perm -2000
+┌──(root💀Fadl)-[~]
+└─# find / -perm -2000
 
 /etc/ppp/peers
 /etc/chatscripts

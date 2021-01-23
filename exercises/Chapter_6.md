@@ -7,7 +7,8 @@ Run the `ps` command with the `aux` options on your system and note which proces
 ---
 
 ```shell
-m-fadl@Fadl:~$ ps aux
+┌──(m-fadl㉿Fadl)-[~]
+└─$  ps aux
 
 USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 root           1  0.0  0.9 168076  6616 ?        Ss   08:34   0:05 /sbin/in
@@ -185,7 +186,9 @@ Run the `top` command and note the two processes using the greatest amount of yo
 ---
 
 ```shell
-m-fadl@Fadl:~$ top
+┌──(m-fadl㉿Fadl)-[~]
+└─$  top
+
 PID   USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+
 10608 root      20   0  283688  69696  35556 S   2.3   9.7   0:00.74
 10883 m-fadl      20   0  405052  80472  63216 S   2.3  11.1   0:00.43
@@ -203,7 +206,8 @@ Use the `kill` command to kill the process that uses the most resources.
 ---
 
 ```shell
-m-fadl@Fadl:~$ kill 10883
+┌──(m-fadl㉿Fadl)-[~]
+└─$  kill 10883
 ```
 
 ---
@@ -215,7 +219,9 @@ Use the `renice` command to reduce the priority of a running process to `+19`.
 ---
 
 ```shell
-m-fadl@Fadl:~$ renice 19 10902
+┌──(m-fadl㉿Fadl)-[~]
+└─$  renice 19 10902
+
 10902 (process ID) old priority 0, new priority 19
 ```
 
@@ -228,7 +234,9 @@ Create a script called `myscanning` (to see how to write a bash script, see Chap
 ---
 
 ```shell
-m-fadl@Fadl:~$ at 1:00am 09/09/2020
+┌──(m-fadl㉿Fadl)-[~]
+└─$  at 1:00am 09/09/2020
+
 warning: commands will be executed using /bin/sh
 at> /home/m-fadl/myscanning
 at> <EOT>

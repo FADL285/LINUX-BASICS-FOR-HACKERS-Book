@@ -7,8 +7,12 @@ Schedule your `MySQLscanner.sh` script to run every Wednesday at 3 PM.
 ---
 
 ```shell
-root@Fadl:/# vi /etc/crontab
-root@Fadl:/# cat /etc/crontab
+┌──(root💀Fadl)-[~]
+└─# vi /etc/crontab
+
+┌──(root💀Fadl)-[~]
+└─# cat /etc/crontab
+
 # /etc/crontab: system-wide crontab
 # Unlike any other crontab you don't have to run the `crontab'
 # command to install the new version when you edit this file
@@ -26,12 +30,11 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 # |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
 # |  |  |  |  |
 # *  *  *  *  * user-name command to be executed
-17 *    * * *   root    cd / && run-parts --report /etc/cron.hourly
-25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
-47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
-52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
+17 *	* * *	root    cd / && run-parts --report /etc/cron.hourly
+25 6	* * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
+47 6	* * 7	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
+52 6	1 * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
 #
-00 15 * * 3 root /home/m-fadl/MySQLscanner.sh
 ```
 
 ---
@@ -43,8 +46,12 @@ Schedule your `MySQLscanner.sh` script to run every 10th day of the month in Apr
 ---
 
 ```shell
-root@Fadl:/# vi /etc/crontab
-root@Fadl:/# cat /etc/crontab
+┌──(root💀Fadl)-[~]
+└─# vi /etc/crontab
+
+┌──(root💀Fadl)-[~]
+└─# cat /etc/crontab
+
 # /etc/crontab: system-wide crontab
 # Unlike any other crontab you don't have to run the `crontab'
 # command to install the new version when you edit this file
@@ -79,8 +86,12 @@ Schedule your `MySQLscanner.sh` script to run every Tuesday through Thursday at 
 ---
 
 ```shell
-root@Fadl:/# vi /etc/crontab
-root@Fadl:/# cat /etc/crontab
+┌──(root💀Fadl)-[~]
+└─# vi /etc/crontab
+
+┌──(root💀Fadl)-[~]
+└─# cat /etc/crontab
+
 # /etc/crontab: system-wide crontab
 # Unlike any other crontab you don't have to run the `crontab'
 # command to install the new version when you edit this file
@@ -115,8 +126,12 @@ Schedule your `MySQLscanner.sh` script to run daily at noon using the shortcuts.
 ---
 
 ```shell
-root@Fadl:/# vi /etc/crontab
-root@Fadl:/# cat /etc/crontab
+┌──(root💀Fadl)-[~]
+└─# vi /etc/crontab
+
+┌──(root💀Fadl)-[~]
+└─# cat /etc/crontab
+
 # /etc/crontab: system-wide crontab
 # Unlike any other crontab you don't have to run the `crontab'
 # command to install the new version when you edit this file
@@ -151,7 +166,8 @@ Update your `rc.d` script to run PostgreSQL every time your system boots.
 ---
 
 ```shell
-root@Fadl:/# update-rc.d postgresql defaults
+┌──(root💀Fadl)-[~]
+└─# update-rc.d postgresql defaults
 ```
 
 ---

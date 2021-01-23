@@ -7,7 +7,9 @@ View all of your environment variables with the `more` command.
 ---
 
 ```shell
-m-fadl@Fadl:~$ set | more
+┌──(m-fadl㉿Fadl)-[~]
+└─$  set | more
+
 BASH=/bin/bash
 BASHOPTS=checkwinsize:cmdhist:complete_fullquote:expand_aliases:extglob:ext
 quote:force_fignore:globasciiranges:histappend:interactive_comments:progcom
@@ -28,8 +30,10 @@ Use the `echo` command to view the `HOSTNAME` variable.
 ---
 
 ```shell
-m-fadl@Fadl:~$ echo $HOSTNAME
-m-fadl
+┌──(m-fadl㉿Fadl)-[~]
+└─$  echo $HOSTNAME
+
+Fadl
 ```
 
 ---
@@ -41,7 +45,9 @@ Find a method to change the slash (`/`) to a backslash ('\') in the faux Microso
 ---
 
 ```shell
-m-fadl@Fadl:~$ PS1='C:\\\W> '
+┌──(m-fadl㉿Fadl)-[~]
+└─$  PS1='C:\\\W> '
+
 C:\~> cd /home
 C:\home>
 ```
@@ -55,7 +61,8 @@ Create a variable names `MYNEWVARIABLE` and put your name in it.
 ---
 
 ```shell
-m-fadl@Fadl:~$ MYNEWVARIABLE=mohamedfadl
+┌──(m-fadl㉿Fadl)-[~]
+└─$  MYNEWVARIABLE=mohamedfadl
 ```
 
 ---
@@ -67,7 +74,9 @@ Use `echo` to view the contents of `MYNEWVARIABLE`.
 ---
 
 ```shell
-m-fadl@Fadl:~$ echo $MYNEWVARIABLE
+┌──(m-fadl㉿Fadl)-[~]
+└─$  echo $MYNEWVARIABLE
+
 mohamedfadl
 ```
 
@@ -80,7 +89,8 @@ Export `MYNEWVARIABLE` so that it's available in all environments.
 ---
 
 ```shell
-m-fadl@Fadl:~$ export MYNEWVARIABLE
+┌──(m-fadl㉿Fadl)-[~]
+└─$  export MYNEWVARIABLE
 ```
 
 ---
@@ -92,7 +102,9 @@ Use the echo command to view the contents of the `PATH` variable.
 ---
 
 ```shell
-m-fadl@Fadl:~$ echo $PATH
+┌──(m-fadl㉿Fadl)-[~]
+└─$  echo $PATH
+
 /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 ```
 
@@ -105,7 +117,8 @@ Add your home directory to the `PATH` variable so that any binaries in your home
 ---
 
 ```shell
-m-fadl@Fadl:~$ PATH=$PATH:/home/m-fadl
+┌──(m-fadl㉿Fadl)-[~]
+└─$  PATH=$PATH:/home/m-fadl
 ```
 
 ---
@@ -117,7 +130,9 @@ Change your `PS1` variable to "World's Greatest Hacker:".
 ---
 
 ```shell
-m-fadl@Fadl:~$ PS1="World's Greatest Hacker: "
+┌──(m-fadl㉿Fadl)-[~]
+└─$  PS1="World's Greatest Hacker: "
+
 World's Greatest Hacker:
 ```
 

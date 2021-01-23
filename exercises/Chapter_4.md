@@ -7,7 +7,9 @@ Install a new software package from the m-fadl repository.
 ---
 
 ```shell
-root@Fadl:/# apt-get install synaptic
+┌──(root💀Fadl)-[~]
+└─# apt-get install synaptic
+
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -24,7 +26,9 @@ Remove that same software package.
 ---
 
 ```shell
-root@Fadl:/# apt-get remove synaptic
+┌──(root💀Fadl)-[~]
+└─# apt-get remove synaptic
+
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -41,7 +45,8 @@ Update your repository.
 ---
 
 ```shell
-root@Fadl:/# apt-get update
+┌──(root💀Fadl)-[~]
+└─# apt-get update
 
 Get:1 http://dl.google.com/linux/chrome/deb stable InRelease [1,811 B]
 Get:3 http://dl.google.com/linux/chrome/deb stable/main amd64 Packages [1,095 B]
@@ -62,7 +67,8 @@ Upgrade your software packages.
 ---
 
 ```shell
-root@Fadl:/# apt-get update
+┌──(root💀Fadl)-[~]
+└─# apt-get update
 
 Reading package lists... Done
 Building dependency tree
@@ -82,7 +88,9 @@ Select a new piece of software from github and clone it to your system.
 ---
 
 ```shell
-m-fadl@Fadl:~$ git clone https://github.com/mohamedfadl285/Cyber-Security-Circle-Linux-Task.git
+┌──(root💀Fadl)-[~]
+└─# git clone https://github.com/mohamedfadl285/Cyber-Security-Circle-Linux-Task.git
+
 Cloning into 'Cyber-Security-Circle-Linux-Task'...
 remote: Enumerating objects: 12, done.
 remote: Counting objects: 100% (12/12), done.

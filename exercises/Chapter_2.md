@@ -7,7 +7,8 @@ Navigate to `/usr/share/metasploit-framework/data/wordlists`. This is a director
 ---
 
 ```shell
-m-fadl@Fadl:~$ cd /usr/share/metasploit-framework/data/wordlists/
+┌──(m-fadl㉿Fadl)-[~]
+└─$  cd /usr/share/metasploit-framework/data/wordlists/
 ```
 
 ---
@@ -19,7 +20,9 @@ Use the `cat` command to view the contents of the file `password.lst`.
 ---
 
 ```shell
-m-fadl@Fadl:/usr/share/metasploit-framework/data/wordlists$ cat password.lst
+┌──(m-fadl㉿Fadl)-[/usr/share/metasploit-framework/data/wordlists]
+└─$ cat password.lst
+
 !@#$%
 !@#$%^
 !@#$%^&
@@ -38,7 +41,8 @@ Use the `more` command to display the file `password.lst`.
 ---
 
 ```shell
-m-fadl@Fadl:/usr/share/metasploit-framework/data/wordlists$ more password.lst
+┌──(m-fadl㉿Fadl)-[/usr/share/metasploit-framework/data/wordlists]
+└─$ more password.lst
 
 --snip--
 ```
@@ -52,7 +56,9 @@ Use the `less` command to view the file `password.lst`.
 ---
 
 ```shell
-m-fadl@Fadl:/usr/share/metasploit-framework/data/wordlists$ less password.lst
+┌──(m-fadl㉿Fadl)-[/usr/share/metasploit-framework/data/wordlists]
+└─$ less password.lst
+
 --snip--
 ```
 
@@ -65,7 +71,9 @@ Now use the `nl` command to place line numbers on the passwords in `password.lst
 ---
 
 ```shell
-m-fadl@Fadl:/usr/share/metasploit-framework/data/wordlists$ nl password.lst
+┌──(m-fadl㉿Fadl)-[/usr/share/metasploit-framework/data/wordlists]
+└─$ nl password.lst
+
  00001 !@#$%
  00002 !@#$%^
  00003 !@#$%^&
@@ -84,7 +92,9 @@ Use the `tail` command to see the last `20` passwords in `password.lst`.
 ---
 
 ```shell
-m-fadl@Fadl:/usr/share/metasploit-framework/data/wordlists$ tail -20 password.lst
+┌──(m-fadl㉿Fadl)-[/usr/share/metasploit-framework/data/wordlists]
+└─$ tail -20 password.lst
+
 zxcvbnm
 zydeco
 zygote
@@ -116,7 +126,9 @@ Use the `cat` command to display `password.lst` and pipe it to find all the pass
 ---
 
 ```shell
-m-fadl@Fadl:/usr/share/metasploit-framework/data/wordlists$ cat password.lst | grep 123
+┌──(m-fadl㉿Fadl)-[/usr/share/metasploit-framework/data/wordlists]
+└─$ cat password.lst | grep 123
+
 123
 123123
 123321

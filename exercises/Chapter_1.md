@@ -7,18 +7,30 @@ Use the `ls` command from the root (`/`) directory to explore the directory stru
 ---
 
 ```shell
-root@Fadl:/# ls -l
+┌──(root💀Fadl)-[~]
+└─# ls -l
 
-root@Fadl:/# cd boot/
-root@Fadl:/boot# pwd
+┌──(root💀Fadl)-[~]
+└─# cd boot/
+
+┌──(root💀Fadl)-[/boot]
+└─# pwd
+
 /boot
 
-root@Fadl:/boot# cd /dev/
-root@Fadl:/dev# pwd
+┌──(root💀Fadl)-[/boot]
+└─# cd /dev/
+
+┌──(root💀Fadl)-[/dev]
+└─# pwd
+
 /dev
 
-root@Fadl:/dev# cd /etc/
-root@Fadl:/etc# pwd
+┌──(root💀Fadl)-[/dev]
+└─# cd /etc/
+
+┌──(root💀Fadl)-[/etc]
+└─# pwd
 /etc
 
 etc .........
@@ -33,7 +45,8 @@ Use the `whoami` command to verify which user you are logged in as.
 ---
 
 ```shell
-m-fadl@Fadl:~$ whoami
+┌──(m-fadl㉿Fadl)-[~]
+└─$ whoami
 m-fadl
 ```
 
@@ -46,7 +59,9 @@ Use the `locate` command to find wordlists that can be used for password crackin
 ---
 
 ```shell
-m-fadl@Fadl:~$ locate wordlists
+┌──(m-fadl㉿Fadl)-[~]
+└─$ locate wordlists
+
 /usr/bin/wordlists
 /usr/lib/python3/dist-packages/theHarvester/wordlists
 /usr/share/wordlists
@@ -67,11 +82,16 @@ Use the `cat` command to create a new file and then append to that file. Keep in
 ---
 
 ```shell
-m-fadl@Fadl:~$ cat > newfile
+┌──(m-fadl㉿Fadl)-[~]
+└─$ cat > newfile
 This is my new file.
-m-fadl@Fadl:~$ cat >> newfile
+
+┌──(m-fadl㉿Fadl)-[~]
+└─$ cat >> newfile
 This is my appendage.
-m-fadl@Fadl:~$ cat newfile
+
+┌──(m-fadl㉿Fadl)-[~]
+└─$ cat newfile
 This is my new file.
 This is my appendage.
 ```
@@ -85,9 +105,14 @@ Create a new directory called `hackerdirectory` and create a new file that direc
 ---
 
 ```shell
-root@Fadl:/home/m-fadl# mkdir hackerdirectory
-root@Fadl:/home/m-fadl# touch hackerdirectory/hackedfile
-root@Fadl:/home/m-fadl# cp hackerdirectory/hackedfile /root/secretfile
+┌──(root💀Fadl)-[/home/m-fadl]
+└─# mkdir hackerdirectory
+
+┌──(root💀Fadl)-[/home/m-fadl]
+└─# touch hackerdirectory/hackedfile
+
+┌──(root💀Fadl)-[/home/m-fadl]
+└─# cp hackerdirectory/hackedfile /root/secretfile
 ```
 
 ---

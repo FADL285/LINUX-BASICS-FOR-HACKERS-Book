@@ -7,7 +7,8 @@ Start your `apache2` service through the command line.
 ---
 
 ```shell
-root@Fadl:/# service apache2 start
+┌──(root💀Fadl)-[~]
+└─# service apache2 start
 ```
 
 ---
@@ -37,7 +38,8 @@ Start your `SSH` service via the command line. Now connect to your m-fadl system
 ---
 
 ```shell
-root@Fadl:/# service ssh start
+┌──(root💀Fadl)-[~]
+└─# service ssh start
 ```
 
 ---
@@ -49,8 +51,12 @@ Start your `MySQL` database service and change the root user password to `hacker
 ---
 
 ```shell
-root@Fadl:/# service mysql start
-root@Fadl:/# mysql -u root -p
+┌──(root💀Fadl)-[~]
+└─# service mysql start
+
+┌──(root💀Fadl)-[~]
+└─# mysql -u root -p
+
 Enter password:
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MariaDB connection id is 38
@@ -79,8 +85,12 @@ Start your `PostgreSQL` database service. Set it up as described in this chapter
 ---
 
 ```shell
-root@Fadl:/# service postgresql start
-root@Fadl:/# su postgres
+┌──(root💀Fadl)-[~]
+└─# service postgresql start
+
+┌──(root💀Fadl)-[~]
+└─# su postgres
+
 postgres@Fadl:~$ createuser msf_user -P
 Enter password for new role:
 Enter it again:

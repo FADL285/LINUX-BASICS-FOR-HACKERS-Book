@@ -7,8 +7,11 @@ Use the `mount` and `umount` commands to mount and unmount your flash drive.
 ---
 
 ```shell
-m-fadl@Fadl:~$ mount /dev/sdb1 /media
-m-fadl@Fadl:~$ umount /dev/sdb1
+┌──(m-fadl㉿Fadl)-[~]
+└─$  mount /dev/sdb1 /media
+
+┌──(m-fadl㉿Fadl)-[~]
+└─$  umount /dev/sdb1
 ```
 
 ---
@@ -20,7 +23,9 @@ Check the amount of disk space free on your primary hard drive.
 ---
 
 ```shell
-m-fadl@Fadl:~$ df
+┌──(m-fadl㉿Fadl)-[~]
+└─$  df
+
 Filesystem     1K-blocks    Used Available Use% Mounted on
 udev              328680       0    328680   0% /dev
 tmpfs              72184    1172     71012   2% /run
@@ -40,7 +45,8 @@ Check for errors on your flash drive with `fsck`.
 ---
 
 ```shell
-m-fadl@Fadl:~$ fsck -p /dev/sdb1
+┌──(m-fadl㉿Fadl)-[~]
+└─$  fsck -p /dev/sdb1
 --snip--
 ```
 
@@ -53,7 +59,8 @@ Use the `dd` command to copy the entire contents of one flash drive to another, 
 ---
 
 ```shell
-m-fadl@Fadl:~$ dd if=/dev/sdb1 of=/dev/sdc1
+┌──(m-fadl㉿Fadl)-[~]
+└─$  dd if=/dev/sdb1 of=/dev/sdc1
 --snip--
 ```
 
@@ -66,7 +73,9 @@ Use the `lsblk` command to determine basic characteristics of your block devices
 ---
 
 ```shell
-m-fadl@Fadl:~$ lsblk
+┌──(m-fadl㉿Fadl)-[~]
+└─$  lsblk
+
 NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 sda      8:0    0   12G  0 disk
 ├─sda1   8:1    0 11.2G  0 part /

@@ -7,7 +7,9 @@ Find information on your active network interfaces.
 ---
 
 ```shell
-root@Fadl:/# ifconfig
+┌──(root💀Fadl)-[~]
+└─# ifconfig
+
 eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 172.16.194.131  netmask 255.255.255.0  broadcast 172.16.194.255
         inet6 fe80::20c:29ff:fef6:8ef2  prefixlen 64  scopeid 0x20<link>
@@ -36,8 +38,12 @@ Change the IP address on `eth0` to `192.168.1.1`.
 ---
 
 ```shell
-root@Fadl:/# ifconfig eth0 194.168.1.1/24
-root@Fadl:/# ifconfig
+┌──(root💀Fadl)-[~]
+└─# ifconfig eth0 194.168.1.1/24
+
+┌──(root💀Fadl)-[~]
+└─# ifconfig
+
 eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 194.168.1.1  netmask 255.255.255.0  broadcast 194.168.1.255
         inet6 fe80::20c:29ff:fef6:8ef2  prefixlen 64  scopeid 0x20<link>
@@ -66,10 +72,18 @@ Change your hardware address on `eth0`.
 ---
 
 ```shell
-root@Fadl:/# ifconfig eth0 down
-root@Fadl:/# ifconfig eth0 hw ether 00:11:22:33:44:55
-root@Fadl:/# ifconfig eth0 up
-root@Fadl:/# ifconfig
+┌──(root💀Fadl)-[~]
+└─# ifconfig eth0 down
+
+┌──(root💀Fadl)-[~]
+└─# ifconfig eth0 hw ether 00:11:22:33:44:55
+
+┌──(root💀Fadl)-[~]
+└─# ifconfig eth0 up
+
+┌──(root💀Fadl)-[~]
+└─# ifconfig
+
 eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 194.168.1.1  netmask 255.255.255.0  broadcast 194.168.1.255
         inet6 fe80::211:22ff:fe33:4455  prefixlen 64  scopeid 0x20<link>
@@ -98,7 +112,9 @@ Check whether you have any available wireless interfaces active.
 ---
 
 ```shell
-root@Fadl:/# iwconfig
+┌──(root💀Fadl)-[~]
+└─# iwconfig
+
 lo        no wireless extensions.
 
 eth0      no wireless extensions.
@@ -113,8 +129,12 @@ Reset your IP address to a DHCP-assigned address.
 ---
 
 ```shell
-root@Fadl:/# dhclient eth0
-root@Fadl:/# ifconfig
+┌──(root💀Fadl)-[~]
+└─# dhclient eth0
+
+┌──(root💀Fadl)-[~]
+└─# ifconfig
+
 eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 172.16.194.132  netmask 255.255.255.0  broadcast 172.16.194.255
         inet6 fe80::211:22ff:fe33:4455  prefixlen 64  scopeid 0x20<link>
@@ -143,7 +163,9 @@ Find the nameserver and email server of your favorite website.
 ---
 
 ```shell
-m-fadl@Fadl:~$ dig github.com ns
+┌──(root💀Fadl)-[~]
+└─# dig github.com ns
+
 --snip--
 ;; QUESTION SECTION:
 ;github.com.                    IN      NS
@@ -183,7 +205,8 @@ Add Google's DNS server to your `/etc/resolv.conf` file so your system refers to
 ---
 
 ```shell
-root@Fadl:/# echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+┌──(root💀Fadl)-[~]
+└─# echo "nameserver 8.8.8.8" >> /etc/resolv.conf
 ```
 
 ---

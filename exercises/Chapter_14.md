@@ -7,7 +7,9 @@ Check your network devices with `ifconfig`. Note any wireless extensions.
 ---
 
 ```shell
-root@Fadl:/home/m-fadl# ifconfig
+┌──(root💀Fadl)-[~]
+└─# ifconfig
+
 eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 172.16.194.131  netmask 255.255.255.0  broadcast 172.16.194.255
         inet6 fe80::20c:29ff:fef6:8ef2  prefixlen 64  scopeid 0x20<link>
@@ -36,7 +38,9 @@ Run `iwconfig` and note any wireless network adapters.
 ---
 
 ```shell
-root@Fadl:/home/m-fadl# iwconfig
+┌──(root💀Fadl)-[~]
+└─# iwconfig
+
 lo        no wireless extensions.
 
 eth0      no wireless extensions.
@@ -51,7 +55,8 @@ Check to see what Wi-Fi AP's are in range with `iwlist`.
 ---
 
 ```shell
-root@Fadl:/home/m-fadl# iwlist wlan0 scan
+┌──(root💀Fadl)-[~]
+└─# iwlist wlan0 scan
 --snip--
 ```
 
@@ -64,7 +69,8 @@ Check to see what Wi-Fi AP's are in range with `nmcli`. Which do you find more u
 ---
 
 ```shell
-root@Fadl:/home/m-fadl# nmcli dev wifi
+┌──(root💀Fadl)-[~]
+└─# nmcli dev wifi
 --snip--
 ```
 
@@ -77,7 +83,8 @@ Connect to your Wi-Fi AP using `nmcli`.
 ---
 
 ```shell
-root@Fadl:/home/m-fadl# nmcli dev wifi connect FADL password @m3n@z@F!
+┌──(root💀Fadl)-[~]
+└─# nmcli dev wifi connect FADL password @m3n@z@F!
 --snip--
 ```
 
@@ -90,8 +97,11 @@ Bring up your Bluetooth adapter with `hciconfig` and scan for nearby discoverabl
 ---
 
 ```shell
-root@Fadl:/home/m-fadl# hciconfig hci0 up
-root@Fadl:/home/m-fadl# hcitool scan
+┌──(root💀Fadl)-[~]
+└─# hciconfig hci0 up
+
+┌──(root💀Fadl)-[~]
+└─# hcitool scan
 --snip--
 ```
 
@@ -104,7 +114,8 @@ Test whether those Bluetooth devices are within reachable distance with `l2ping`
 ---
 
 ```shell
-root@Fadl:/home/m-fadl# l2ping 76:6E:46:63:72:66 -c 3
+┌──(root💀Fadl)-[~]
+└─# l2ping 76:6E:46:63:72:66 -c 3
 --snip--
 ```
 
