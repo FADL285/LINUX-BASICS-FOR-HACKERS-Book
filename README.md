@@ -18,6 +18,8 @@
 | [Chapter #9](#chapter-9) | COMPRESSING AND ARCHIVING |
 | [Chapter #10](#chapter-10) | FILESYSTEM AND STORAGE DEVICE MANAGEMENT |
 | [Chapter #11](#chapter-11) | THE LOGGING SYSTEM |
+| [Chapter #12](#chapter-12) | USING AND ABUSING SERVICES |
+| [Chapter #13](#chapter-13) | BECOMING SECURE AND ANONYMOUS |
 
 ---
 
@@ -1307,5 +1309,102 @@ You will see that the system save your activity every 4 Weeks, change it if you 
   ```
 
   Linux will stop generating any log files until the service is restarted.
+
+---
+
+# Chapter #12
+
+> This chapter will teach you how to use and abuse three core Linux services: Apache web server, OpenSSH, and MySQL
+
+<br />
+
+A service is an application that runs in the background waiting for you to use it.
+
+## STARTING, STOPPING, AND RESTARTING SERVICES
+
+you can use ```service``` command to start, stop, or restart the service.
+
+```shell
+Syntax: service servicename start|stop|restart
+
+┌──(root💀Fadl)-[~]
+└─# service apache2 start
+```
+
+To learn how to set up a web server with Apache, physically spy with OpenSSH, access data with MySQL, and store your hacking information with PostgreSQL. You should see this chapter in the book.
+
+---
+
+# Chapter #13
+
+> This chapter will teach you how to stay secure and anonymous with proxy servers, the Tor network, VPNs, and encrypted email.
+
+<br />
+
+everything we do on the internet is tracked. Whoever is doing the tracking—whether it be Google tracking our online searches, website visits, and email or the National Security Agency (NSA) cataloging all our activities—our every online move is being recorded, indexed, and then mined for someone’s benefit.
+
+## Commands
+
+- To see what hops a packet might make between you and the destination, you can use the ```traceroute``` command
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# traceroute google.com
+  ```
+
+  this command will send out packets to the destination and trace the route of those packets.
+
+## THE ONION ROUTER SYSTEM (Tor)
+
+Packets sent over Tor are not sent over the regular routers so closely monitored by so many but rather are sent over a network of over 7,000 routers around the world.
+On top of using a totally separate router network, Tor encrypts the data, destination, and sender IP address of
+each packet.
+
+To enable the use of Tor, just install the Tor browser from https://www.torproject.org/
+
+
+## PROXY SERVERS
+
+Another strategy for achieving anonymity on the internet is to use proxies, which are intermediate systems that act as middlemen for traffic: the user connects to a proxy, and the traffic is given the IP address of the proxy before it’s passed on  When the traffic returns from the destination, the proxy sends the traffic back to the source. In this way, traffic appears to come from the proxy and not the originating IP address.
+
+Kali Linux has an excellent proxying tool called proxychains that you can set up to obscure your traffic. The syntax for the proxychains command is straightforward, as shown here:
+
+```shell
+┌──(root💀Fadl)-[~]
+└─# proxychains <the command you want proxied> <arguments
+```
+
+```shell
+┌──(root💀Fadl)-[~]
+└─# proxychains nmap -sT -Pn<IPaddress>
+```
+  This would send the nmap–sSstealth scan command to the given IP address through a proxy. The tool then builds the chain of proxies itself,
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# proxychains firefox www.hackers-arise.com
+  ```
+
+  This successfully opens https://www.hackers­arise.com/ in Firefox through my chosen proxy and returns the results to me.
+
+**Dynamic Chaining:**
+
+  Go back into your proxychains configuration file, find the dynamic_chainline , and uncomment it, as shown next. Also make sure you comment out the strict_chainline
+
+**Random Chaining:**
+
+  Go back inside the /etc/proxychains.conf file and comment out the lines dynamic_chain and strict_chainby adding a #at the start of each line; then uncomment the random_chain line.
+
+<br />
+
+## VIRTUAL PRIVATE NETWORKS
+
+all traffic between you and the VPN device is encrypted, so even your internet service provider can’t see your traffic.
+
+## ENCRYPTED EMAIL(ProtonMail)
+
+One way to prevent eavesdropping on your email is to use encrypted email.
+
+ProtonMail encrypts your email from end to end or browser to browser. This means that your email is encrypted on ProtonMail servers even the ProtonMail administrators can’t read your email.
 
 ---
