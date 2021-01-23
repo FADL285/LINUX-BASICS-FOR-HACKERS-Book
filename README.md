@@ -14,6 +14,7 @@
 | [Chapter #5](#chapter-5) | CONTROLLING FILE AND DIRECTORY PERMISSIONS |
 | [Chapter #6](#chapter-6) | PROCESS MANAGEMENT |
 | [Chapter #7](#chapter-7) | MANAGING USER ENVIRONMENT VARIABLES |
+| [Chapter #8](#chapter-8) | BASH SCRIPTING |
 
 ---
 
@@ -214,41 +215,41 @@ a logical filesystem instead. At the very top of the filesystem structure is / (
 
 - **Taking the Head :** view the beginning of a file. By default, this command ( `head` ) displays the first 10 lines of a file.
 
-      $ head file.txt
+      m-fadl@Fadl:~$ head file.txt
 
   If you want to see more or fewer than the default 10 lines, enter the quantity you want with the dash (-) switch after the call to `head` and before the filename. <br/>
   
-      $ head -5 file.txt
+      m-fadl@Fadl:~$ head -5 file.txt
 
 - **Grabbing That Tail :** The `tail` command is similar to the `head` command, but it’s used to view the last lines of a file.
   
-      $ tail file.txt
+      m-fadl@Fadl:~$ tail file.txt
 
 - **Numbering the Lines :** To display a file with line numbers, we use the `nl` (number lines) command. <br/>
       
-      $ nl file.txt
+      m-fadl@Fadl:~$ nl file.txt
 
 - **FILTERING TEXT WITH _GREP_ :** The grep filter searches a file for a particular pattern of characters, and displays all lines that contain that pattern <br/>
   
-      $ ps aux | grep -i "apache"
+      m-fadl@Fadl:~$ ps aux | grep -i "apache"
 
 - **USING SED TO FIND AND REPLACE :** The sedcommand lets you search for occurrences of a word or a text pattern and then perform some action on it.
 
   1. Find a word and replace it with a new one and save the result in a new file <br/>
 
-          $ sed s/oldWord/newWord/g searchedFileName > newFileName
+          m-fadl@Fadl:~$ sed s/oldWord/newWord/g searchedFileName > newFileName
 
   2. Find a word and replace it on the same file <br/>
      
-          $ sed -i s/oldWord/newWord/g searchFileName
+          m-fadl@Fadl:~$ sed -i s/oldWord/newWord/g searchFileName
 
 - **Controlling the Display with _more_ :** The `more` command displays a page of a file at a time and lets you page down through it using the ENTER key. <br/>
     
-      $ more fileName
+      m-fadl@Fadl:~$ more fileName
 
 - **Displaying and Filtering with _less_ :** Less is a command line utility that displays the contents of a file or a command output, one page at a time. It is similar to more, but has more advanced features and allows you to search and navigate both forward and backward through the file. <br/>
   
-      $ ps aux | less
+      m-fadl@Fadl:~$ ps aux | less
 
 ---
 
@@ -266,15 +267,15 @@ a logical filesystem instead. At the very top of the filesystem structure is / (
 
 - **CHECKING WIRELESS NETWORK DEVICES WITH IWCONFIG :** `iwconfig` is similar to ifconfig, but is dedicated to the wireless interfaces. It is used to set the parameters of the network interface that are specific to the wireless operation (the wireless frequency, for example). `iwconfig` may also be used to display those parameters, and the wireless statistics
 
-      $ iwconfig
+      m-fadl@Fadl:~$ iwconfig
 
 - **Assigning New IP Addresses from the DHCP Server :** The DHCP protocol allows a host to contact a central server which maintains a list of IP addresses which may be assigned on one or more subnets. A DHCP client may request an address from this pool, and then use it on a temporary basis for communication on network. The DHCP protocol also provides a mechanism whereby a client can learn important details about the network to which it is attached, such as the location of a default router, the location of a name server, etc.
 
-      $ dhclient eth0
+      m-fadl@Fadl:~$ dhclient eth0
 
 - **Examining DNS with dig :** The `dig` command in Linux is used to gather DNS information. It stands for Domain Information Groper, and it collects data about Domain Name Servers. The `dig` command is helpful for diagnosing DNS problems, but is also used to display DNS information.
 
-      $ dig www.cisco.com
+      m-fadl@Fadl:~$ dig www.cisco.com
 
 - **Changing Your DNS Server :** In some cases, you may want to use another DNS server. To do so, you’ll edit a plaintext
   file named `/etc/resolv.conf` on the system. Open that file in a text editor. Then, on your command line, enter the precise name of your editor followed by the location of the file and the filename.
@@ -349,7 +350,7 @@ Sometimes the software you want isn’t available in any of the repositories—e
 Once you’ve found the software on github, you can install it from the terminal by
 entering the git clone command followed by its github URL.
 
-    $ git clone https://www.github.com/repoName
+    m-fadl@Fadl:~$ git clone https://www.github.com/repoName
 
 ---
 
@@ -513,7 +514,7 @@ These states are:
 
   To track the running processes on your machine you can use the ```top``` command.
 
-      $ top
+      m-fadl@Fadl:~$ top
 
   ![Top Command Result](img/top-command.png)
 
@@ -553,7 +554,7 @@ These states are:
   
   ```ps``` command is short for 'Process Status'. It displays the currently-running processes. However, unlike the top command, the output generated is not in realtime.
 
-      $ ps
+      m-fadl@Fadl:~$ ps
 
   ![ps command result](img/ps-command.png)
 
@@ -571,13 +572,13 @@ These states are:
 
     To get more information using ps command use:
 
-      $ ps -u
+      m-fadl@Fadl:~$ ps -u
 
     <br />
 
     To show all processes running on the system for all users using ps command use:
 
-      $ ps aux
+      m-fadl@Fadl:~$ ps aux
 
     ![ps aux command result](img/psaux-command.png)
 
@@ -591,23 +592,23 @@ There are different types of signals that you can send. However, the most common
 
 You can list all the signals using:
 
-    $ kill -L
+    m-fadl@Fadl:~$ kill -L
 
 The default signal is 15, which is **SIGTERM**. Which means if you just use the kill command without any number, it sends the SIGTERM signal.
 
 The syntax for killing a process is:
 
-    $ kill [pid]
+    m-fadl@Fadl:~$ kill [pid]
 
 Alternatively you can also use :
 
-    $ kill -9 [pid]
+    m-fadl@Fadl:~$ kill -9 [pid]
 
 This command will send a ‘SIGKILL’ signal to the process. This should be used in case the process ignores a normal kill request.
 
 To Know **PID** use ```pidof command```
 
-    $ pidof [processName]
+    m-fadl@Fadl:~$ pidof [processName]
 
 <br />
 
@@ -619,11 +620,11 @@ The fourth column in the output of top command is the column for niceness value.
 
 To start a process and give it a nice value other than the default one, use:
 
-    $ nice -n [value] [process name]
+    m-fadl@Fadl:~$ nice -n [value] [process name]
 
 To change nice value of a process that is already running use:
 
-    $ renice [value] -p 'PID'
+    m-fadl@Fadl:~$ renice [value] -p 'PID'
 
 ---
 
@@ -650,7 +651,7 @@ variables are system wide variables built into your system and interface that co
 
         You can view all your default environment variables by entering env into your terminal from any directory.
 
-            $ env
+            m-fadl@Fadl:~$ env
 
         Display all default environment variables
 
@@ -664,13 +665,13 @@ variables are system wide variables built into your system and interface that co
 
         You can request to view each variable, line by line, in a more accessible fashion using set and piping it to the more command
 
-            $ set | more
+            m-fadl@Fadl:~$ set | more
 
 - **Filtering for Particular Variables**
   
   you can use the filtering command ``grep`` to find your variable of interest
 
-      $ set | grep HISTSIZE
+      m-fadl@Fadl:~$ set | grep HISTSIZE
 
 - **Changing Variable Values for a Session**
 
@@ -678,9 +679,9 @@ variables are system wide variables built into your system and interface that co
 
       // Values can be assign by different ways ex:-
 
-      $ KEY=value
-      $ KEY="Some other value"
-      $ KEY=value1:value2
+      m-fadl@Fadl:~$ KEY=value
+      m-fadl@Fadl:~$ KEY="Some other value"
+      m-fadl@Fadl:~$ KEY=value1:value2
 
   **Note:** that change only occurs in that particular environment; in this case, that environment is the bash shell session. This means that when you close the terminal, any changes you made are lost
 
@@ -688,7 +689,7 @@ variables are system wide variables built into your system and interface that co
 
   If you want to make the changes permanent, you need to use the ```export``` command.
   
-      $ export name=[value]
+      m-fadl@Fadl:~$ export name=[value]
 
 - **CHANGING YOUR SHELL PROMPT**
 
@@ -706,7 +707,7 @@ variables are system wide variables built into your system and interface that co
 
   You can change the name in the default shell prompt by setting the value for the ```PS1``` variable.
 
-      $ PS1="PROMPT Shell Changed: "
+      m-fadl@Fadl:~$ PS1="PROMPT Shell Changed: "
 
 - **CHANGING YOUR PATH**
 
@@ -714,23 +715,90 @@ variables are system wide variables built into your system and interface that co
 
   You can find out which directories are stored in your PATH variable by this command
 
-      $ echo $PATH
+      m-fadl@Fadl:~$ echo $PATH
 
   You can add to Path Variables another value by this command
 
-      $ PATH=$PATH:/root/dirName
+      m-fadl@Fadl:~$ PATH=$PATH:/root/dirName
 
 
 - **CREATING A USER-DEFINED VARIABLE**
 
   You can create your own custom, user defined variables in Linux by simply assigning a value to a new variable that you name.
 
-      $ MYVARIABLE="THEVALUE"
+      m-fadl@Fadl:~$ MYVARIABLE="THEVALUE"
 
 - **Deleting A VARIABLE**
 
   If you want to delete this new variable, or any variable, use the unset command
 
-      $ unset MYVARIABLE
+      m-fadl@Fadl:~$ unset MYVARIABLE
+
+---
+
+# Chapter #8
+
+> This chapter will introduce you to bash scripting, a staple for any serious hacker. You’ll learn the basics of bash.
+
+Shell scripting is an powerful way to automate tasks that you regularly execute on your computer.
+
+A shell is an interface between the user and the operating system that enables you to manipulate files and run commands, utilities, programs, and much more.
+
+## Basics
+
+Bash Scripts is a file with extension ```.sh```
+
+First Create bash file
+
+    m-fadl@Fadl:~$ touch script.sh
+
+If you notice that file not executable by default, so you need to change the permissions.
+
+Let's change it
+
+    m-fadl@Fadl:~$ chmod u+x script.sh
+
+Now open it with your favorite editor and let's code it 😀
+
+The important thing is that it must start with a "shebang" on the first line, then follow the shebang (#!) with /bin/bash to indicate that you want the operating system to use the bash shell interpreter
+
+    #!/bin/bash
+
+Now you can execute the script if you are in the same folder by calling it ```./script.sh```, or using the full path to it.
+
+- **Comments**
+
+  Comments are one of the most important things when writing programs. A line starting with the # symbol is a comment.
+
+      # this is a comment
+
+- **Variables**
+
+  You can set variables by using the = operator:
+  
+      # Syntax: name=value
+
+      # Exambles
+
+      NUMBER=285
+      name="Mohamed"
+      nickname="Fadl"
+
+- **Printing**
+
+    You can print anything to the screen using the echo command
+    You can print a variable by using the echo built-in command and prepending a m-fadl@Fadl:~$ to the var name
+
+        echo "Hello World"
+        echo $name
+
+- **Reading input**
+
+  You can make your scripts interactive by using the read built-in command. This command reads a line from the standard input, and it can format input in a very flexible way.
+
+      echo "Age:"
+      read age
+
+This is a very basics summary for bash scripting.
 
 ---
