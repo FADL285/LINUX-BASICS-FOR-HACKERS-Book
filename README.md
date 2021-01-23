@@ -15,6 +15,7 @@
 | [Chapter #6](#chapter-6) | PROCESS MANAGEMENT |
 | [Chapter #7](#chapter-7) | MANAGING USER ENVIRONMENT VARIABLES |
 | [Chapter #8](#chapter-8) | BASH SCRIPTING |
+| [Chapter #9](#chapter-9) | COMPRESSING AND ARCHIVING |
 
 ---
 
@@ -215,41 +216,67 @@ a logical filesystem instead. At the very top of the filesystem structure is / (
 
 - **Taking the Head :** view the beginning of a file. By default, this command ( `head` ) displays the first 10 lines of a file.
 
-      m-fadl@Fadl:~$ head file.txt
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ head file.txt
+  ```
 
   If you want to see more or fewer than the default 10 lines, enter the quantity you want with the dash (-) switch after the call to `head` and before the filename. <br/>
   
-      m-fadl@Fadl:~$ head -5 file.txt
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ head -5 file.txt
+  ```
 
 - **Grabbing That Tail :** The `tail` command is similar to the `head` command, but it’s used to view the last lines of a file.
   
-      m-fadl@Fadl:~$ tail file.txt
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ tail file.txt
+  ```
 
 - **Numbering the Lines :** To display a file with line numbers, we use the `nl` (number lines) command. <br/>
-      
-      m-fadl@Fadl:~$ nl file.txt
+  
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ nl file.txt
+  ```
 
 - **FILTERING TEXT WITH _GREP_ :** The grep filter searches a file for a particular pattern of characters, and displays all lines that contain that pattern <br/>
-  
-      m-fadl@Fadl:~$ ps aux | grep -i "apache"
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ ps aux | grep -i "apache"
+  ```
 
 - **USING SED TO FIND AND REPLACE :** The sedcommand lets you search for occurrences of a word or a text pattern and then perform some action on it.
 
   1. Find a word and replace it with a new one and save the result in a new file <br/>
 
-          m-fadl@Fadl:~$ sed s/oldWord/newWord/g searchedFileName > newFileName
+      ```shell
+      ┌──(m-fadl㉿Fadl)-[~]
+      └─$ sed s/oldWord/newWord/g searchedFileName > newFileName
+      ```
 
   2. Find a word and replace it on the same file <br/>
-     
-          m-fadl@Fadl:~$ sed -i s/oldWord/newWord/g searchFileName
+
+      ```shell
+      ┌──(m-fadl㉿Fadl)-[~]
+      └─$ sed -i s/oldWord/newWord/g searchFileName
+      ```
 
 - **Controlling the Display with _more_ :** The `more` command displays a page of a file at a time and lets you page down through it using the ENTER key. <br/>
-    
-      m-fadl@Fadl:~$ more fileName
+  
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ more fileName
+  ```
 
 - **Displaying and Filtering with _less_ :** Less is a command line utility that displays the contents of a file or a command output, one page at a time. It is similar to more, but has more advanced features and allows you to search and navigate both forward and backward through the file. <br/>
   
-      m-fadl@Fadl:~$ ps aux | less
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ ps aux | less
+  ```
 
 ---
 
@@ -266,16 +293,25 @@ a logical filesystem instead. At the very top of the filesystem structure is / (
   ex: `sudo ifconfig wlan0 69.72.169.1` => assign a static IP address to an interface, specify the interface name and the IP address
 
 - **CHECKING WIRELESS NETWORK DEVICES WITH IWCONFIG :** `iwconfig` is similar to ifconfig, but is dedicated to the wireless interfaces. It is used to set the parameters of the network interface that are specific to the wireless operation (the wireless frequency, for example). `iwconfig` may also be used to display those parameters, and the wireless statistics
-
-      m-fadl@Fadl:~$ iwconfig
+  
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ iwconfig
+  ```
 
 - **Assigning New IP Addresses from the DHCP Server :** The DHCP protocol allows a host to contact a central server which maintains a list of IP addresses which may be assigned on one or more subnets. A DHCP client may request an address from this pool, and then use it on a temporary basis for communication on network. The DHCP protocol also provides a mechanism whereby a client can learn important details about the network to which it is attached, such as the location of a default router, the location of a name server, etc.
 
-      m-fadl@Fadl:~$ dhclient eth0
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ dhclient eth0
+  ```
 
 - **Examining DNS with dig :** The `dig` command in Linux is used to gather DNS information. It stands for Domain Information Groper, and it collects data about Domain Name Servers. The `dig` command is helpful for diagnosing DNS problems, but is also used to display DNS information.
 
-      m-fadl@Fadl:~$ dig www.cisco.com
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ dig www.cisco.com
+  ```
 
 - **Changing Your DNS Server :** In some cases, you may want to use another DNS server. To do so, you’ll edit a plaintext
   file named `/etc/resolv.conf` on the system. Open that file in a text editor. Then, on your command line, enter the precise name of your editor followed by the location of the file and the filename.
@@ -350,7 +386,10 @@ Sometimes the software you want isn’t available in any of the repositories—e
 Once you’ve found the software on github, you can install it from the terminal by
 entering the git clone command followed by its github URL.
 
-    m-fadl@Fadl:~$ git clone https://www.github.com/repoName
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ git clone https://www.github.com/repoName
+  ```
 
 ---
 
@@ -514,7 +553,10 @@ These states are:
 
   To track the running processes on your machine you can use the ```top``` command.
 
-      m-fadl@Fadl:~$ top
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ top
+  ```
 
   ![Top Command Result](img/top-command.png)
 
@@ -554,7 +596,10 @@ These states are:
   
   ```ps``` command is short for 'Process Status'. It displays the currently-running processes. However, unlike the top command, the output generated is not in realtime.
 
-      m-fadl@Fadl:~$ ps
+    ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ ps
+  ```
 
   ![ps command result](img/ps-command.png)
 
@@ -572,13 +617,19 @@ These states are:
 
     To get more information using ps command use:
 
-      m-fadl@Fadl:~$ ps -u
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ ps -u
+  ```
 
     <br />
 
     To show all processes running on the system for all users using ps command use:
 
-      m-fadl@Fadl:~$ ps aux
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ ps aux
+  ```
 
     ![ps aux command result](img/psaux-command.png)
 
@@ -592,23 +643,35 @@ There are different types of signals that you can send. However, the most common
 
 You can list all the signals using:
 
-    m-fadl@Fadl:~$ kill -L
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ kill -L
+  ```
 
 The default signal is 15, which is **SIGTERM**. Which means if you just use the kill command without any number, it sends the SIGTERM signal.
 
 The syntax for killing a process is:
 
-    m-fadl@Fadl:~$ kill [pid]
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ kill [pid]
+  ```
 
 Alternatively you can also use :
 
-    m-fadl@Fadl:~$ kill -9 [pid]
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ kill -9 [pid]
+  ```
 
 This command will send a ‘SIGKILL’ signal to the process. This should be used in case the process ignores a normal kill request.
 
 To Know **PID** use ```pidof command```
 
-    m-fadl@Fadl:~$ pidof [processName]
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ pidof [processName]
+  ```
 
 <br />
 
@@ -620,11 +683,17 @@ The fourth column in the output of top command is the column for niceness value.
 
 To start a process and give it a nice value other than the default one, use:
 
-    m-fadl@Fadl:~$ nice -n [value] [process name]
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ nice -n [value] [process name]
+  ```
 
 To change nice value of a process that is already running use:
 
-    m-fadl@Fadl:~$ renice [value] -p 'PID'
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ renice [value] -p 'PID'
+  ```
 
 ---
 
@@ -651,7 +720,10 @@ variables are system wide variables built into your system and interface that co
 
         You can view all your default environment variables by entering env into your terminal from any directory.
 
-            m-fadl@Fadl:~$ env
+        ```shell
+        ┌──(m-fadl㉿Fadl)-[~]
+        └─$ env
+        ```
 
         Display all default environment variables
 
@@ -665,23 +737,34 @@ variables are system wide variables built into your system and interface that co
 
         You can request to view each variable, line by line, in a more accessible fashion using set and piping it to the more command
 
-            m-fadl@Fadl:~$ set | more
+          ```shell
+          ┌──(m-fadl㉿Fadl)-[~]
+          └─$ set | more
+          ```
 
 - **Filtering for Particular Variables**
   
   you can use the filtering command ``grep`` to find your variable of interest
 
-      m-fadl@Fadl:~$ set | grep HISTSIZE
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ set | grep HISTSIZE
+  ```
 
 - **Changing Variable Values for a Session**
 
   you can change variable value in the session you use by entering the variable name & value
 
-      // Values can be assign by different ways ex:-
+  Values can be assign by different ways ex:-
 
-      m-fadl@Fadl:~$ KEY=value
-      m-fadl@Fadl:~$ KEY="Some other value"
-      m-fadl@Fadl:~$ KEY=value1:value2
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ KEY=value
+
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ KEY=value1:value2
+
+  ```
 
   **Note:** that change only occurs in that particular environment; in this case, that environment is the bash shell session. This means that when you close the terminal, any changes you made are lost
 
@@ -689,7 +772,10 @@ variables are system wide variables built into your system and interface that co
 
   If you want to make the changes permanent, you need to use the ```export``` command.
   
-      m-fadl@Fadl:~$ export name=[value]
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ export name=[value]
+  ```  
 
 - **CHANGING YOUR SHELL PROMPT**
 
@@ -699,15 +785,22 @@ variables are system wide variables built into your system and interface that co
 
     - as a normal user:
 
-          username@hostname:current_directory
+      ```shell
+      username@hostname:current_directory
+      ```
 
     - as a root user:
 
-          root@hostname:current_directory
+      ```shell
+      root@hostname:current_directory
+      ```
 
   You can change the name in the default shell prompt by setting the value for the ```PS1``` variable.
 
-      m-fadl@Fadl:~$ PS1="PROMPT Shell Changed: "
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ PS1="PROMPT Shell Changed: "
+  ```
 
 - **CHANGING YOUR PATH**
 
@@ -715,24 +808,35 @@ variables are system wide variables built into your system and interface that co
 
   You can find out which directories are stored in your PATH variable by this command
 
-      m-fadl@Fadl:~$ echo $PATH
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ echo $PATH
+  ```
 
   You can add to Path Variables another value by this command
 
-      m-fadl@Fadl:~$ PATH=$PATH:/root/dirName
-
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ PATH=$PATH:/root/dirName
+  ```
 
 - **CREATING A USER-DEFINED VARIABLE**
 
   You can create your own custom, user defined variables in Linux by simply assigning a value to a new variable that you name.
 
-      m-fadl@Fadl:~$ MYVARIABLE="THEVALUE"
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ MYVARIABLE="THEVALUE"
+  ```
 
 - **Deleting A VARIABLE**
 
   If you want to delete this new variable, or any variable, use the unset command
 
-      m-fadl@Fadl:~$ unset MYVARIABLE
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ unset MYVARIABLE
+  ```
 
 ---
 
@@ -750,19 +854,27 @@ Bash Scripts is a file with extension ```.sh```
 
 First Create bash file
 
-    m-fadl@Fadl:~$ touch script.sh
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ touch script.sh
+  ```
 
 If you notice that file not executable by default, so you need to change the permissions.
 
 Let's change it
 
-    m-fadl@Fadl:~$ chmod u+x script.sh
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ chmod u+x script.sh
+  ```
 
 Now open it with your favorite editor and let's code it 😀
 
 The important thing is that it must start with a "shebang" on the first line, then follow the shebang (#!) with /bin/bash to indicate that you want the operating system to use the bash shell interpreter
 
-    #!/bin/bash
+  ```shell
+  #!/bin/bash
+  ```
 
 Now you can execute the script if you are in the same folder by calling it ```./script.sh```, or using the full path to it.
 
@@ -770,35 +882,182 @@ Now you can execute the script if you are in the same folder by calling it ```./
 
   Comments are one of the most important things when writing programs. A line starting with the # symbol is a comment.
 
-      # this is a comment
+  ```shell
+  # this is a comment
+  ```
 
 - **Variables**
 
   You can set variables by using the = operator:
   
-      # Syntax: name=value
+  ```shell
+  # Syntax: name=value
 
-      # Exambles
+  # Exambles
 
-      NUMBER=285
-      name="Mohamed"
-      nickname="Fadl"
+  NUMBER=285
+  name="Mohamed"
+  nickname="Fadl"
+  ```
 
 - **Printing**
 
     You can print anything to the screen using the echo command
-    You can print a variable by using the echo built-in command and prepending a m-fadl@Fadl:~$ to the var name
+    You can print a variable by using the echo built-in command and prepending a $ sign to the var name
 
-        echo "Hello World"
-        echo $name
+    ```shell
+    echo "Hello World"
+    echo $name
+    ```
 
 - **Reading input**
 
   You can make your scripts interactive by using the read built-in command. This command reads a line from the standard input, and it can format input in a very flexible way.
 
-      echo "Age:"
-      read age
+  ```shell
+  echo "Age:"
+  read age
+  ```
 
 This is a very basics summary for bash scripting.
 
+---
+# Chapter #9
+
+> This chapter will give you some essential file system management skills, showing you how to compress and archive files to keep your system clean.
+
+<br />
+
+## WHAT IS COMPRESSION?
+
+Compression, as the name implies, makes data smaller, thereby requiring less storage capacity and making the data easier to transmit.
+
+<br />
+
+## Commands
+
+- **TARRING FILES TOGETHER**: 
+
+  the first thing you do when compressing files is to combine them into an archive.
+  In most cases, when archiving files, you’ll use the ```tar``` command. Tar stands for tape archive.
+
+  ```shell
+  ┌──(m-fadl㉿Fadl)-[~]
+  └─$ ls -l
+
+    rwxrxrx 1 root root 22311 Nov 27 2018 13:00 hackersarise1.sh
+    rwxrxrx 1 root root 8791 Nov 27 2018 13:00 hackersarise2.sh
+    rwxrxrx 1 root root 3992 Nov 27 2018 13:00 hackersarise3.sh
+  ```
+
+  If you want to combine these files together we will use ```tar``` command
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# tar
+
+    <!-- tar Options:  -->
+    A  -- append to an archive
+    c  -- create a new archive
+    f  -- specify archive file or device
+    t  -- list archive contents
+    u  -- update archive
+    v  -- verbose output
+    x  -- extract files from an archive
+  ```
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# tar tar -cvf HackersArise.tar hackersarise1.sh hackersarise2.sh hackersarise3.sh
+  ```
+  this command will take all three files and create a single file, HackersArise.tar
+
+  If you want to **extract** the files use:
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# tar tar -xf HackersArise.tar
+  ```
+
+- **TARRING FILES TOGETHER**: 
+
+  Linux has several commands capable of creating compressed files. We will look at these:
+
+  - gzip, which uses the extension .tar.gz or .tgz
+  - bzip2, which uses the extension .tar.bz2
+  - compress, which uses the extension .tar.z
+
+  These all are capable of compressing our files, but they use different compression algorithms and have different compression ratios.
+
+- **Compressing with gzip**:
+  
+  You can compress your HackersArise.tar file by entering the following
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# gzip HackersArise.tar
+  ```
+
+  You can decompress that same file by using the ```gunzip``` command, short for GNU unzip.
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# gunzip HackersArise.tar.gz
+  ```
+
+- **Compressing with bzip2**:
+
+  Another of the other widely used compression utilities in Linux is bzip2, which works similarly to gzip but has better compression ratios, meaning that the resulting file will be even smaller. You can compress your HackersArise.tar file by entering the following:
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# bzip2 HackersArise.tar
+  ```
+
+  To uncompress the compressed file, use bunzip2, like so:
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# bunzip2 HackersArise.tar.bz2
+  ```
+  
+- **Compressing with compress**:
+
+  you can use the command compress to compress the file. This is probably the least commonly used compression utility.
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# copress HackersArise.tar
+  ```
+
+  To decompress the same file, use uncompress:
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# uncopress HackersArise.tar.Z
+  ```
+
+- **CREATING BIT-BY-BIT OR PHYSICAL COPIES OF STORAGE
+DEVICES**
+
+  Within the world of information security and hacking, one Linux archiving command stands above the rest in its usefulness. The ```dd``` command makes a bit by bit copy of a file, a filesystem, or even an entire hard drive.
+  
+  This means that even deleted files are copied (yes, it’s important to know that your deleted files may be recoverable), making for easy discovery and recovery
+
+  It’s critical to note that the dd command should not be used for typical day to day copying of files and storage devices because it is very slow.
+
+  The basic syntax for the dd command is as follows:
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# dd if=inputfile of=outputfile
+  ```
+
+  make a physical copy of your flash drive, assuming the flash drive is sdb
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# dd if=/dev/sdb of=/root/flashcop
+  ```
+  
 ---
