@@ -21,6 +21,7 @@
 | [Chapter #12](#chapter-12) | USING AND ABUSING SERVICES |
 | [Chapter #13](#chapter-13) | BECOMING SECURE AND ANONYMOUS |
 | [Chapter #14](#chapter-14) | UNDERSTANDING AND INSPECTING WIRELESS NETWORKS |
+| [Chapter #15](#chapter-15) | MANAGING THE LINUX KERNEL AND LOADABLE KERNEL MODULES |
 
 ---
 
@@ -1524,6 +1525,109 @@ The ability to scan for and connect to other network devices from your system is
   ```shell
   ┌──(root💀Fadl)-[~]
   └─# l2ping 76:6E:46:63:72:66 -c 4
+  ```
+
+---
+
+# Chapter #15
+
+> This chapter dives deeper into Linux itself with a high level view of how the kernel works and how its drivers can be abused to deliver malicious software.
+
+<br />
+
+## WHAT IS A KERNEL MODULE?
+
+The kernel is the central nervous system of your operating system, controlling everything it does, including managing interactions between hardware components and starting the necessary services.
+
+The kernel operates between the user applications you see and the hardware that runs everything, like the CPU, memory, and hard drive.
+
+Linux is a monolithic kernel that enables the addition of kernel modules.
+
+These modules are referred to as loadable kernel modules, or LKMs.
+
+LKMs have access to the lowest levels of the kernel by necessity.
+
+
+## Commands
+
+- **CHECKING THE KERNEL VERSION**
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# uname -a
+
+    OR
+
+  ┌──(root💀Fadl)-[~]
+  └─# cat /proc/version
+  ```
+
+- **KERNEL TUNING WITH SYSCTL**
+
+  Modern Linux kernels use the sysctl command to tune kernel options.
+  All changes you make with sysctl remain in effect only until you reboot the system. To make any changes permanent, you have to edit the configuration file for sysctl directly at ***/etc/sysctl.conf.***
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# sysctl -a | less
+  ```
+
+  take a look at the contents of ```sysctl``` The line net.ipv4.ip_forward=0is the kernel parameter that enables the kernel to forward on the packets it receives.
+
+  To enable IP forwarding, change the 0 to a 1
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# sysctl -w net.ipv4.ip_forward=1
+  ```
+
+- **MANAGING KERNEL MODULES**
+
+  Linux has at least two ways to manage kernel modules.
+  
+  The older way is to use a group of commands built around the ```insmod``` suite—insmod stands for insert module and is intended to deal with modules.
+  
+  The second way, using the ```modprobe``` command
+
+  To list the installed modules in the kernel,as well as information on their size and what other modules may use them.
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# lsmod
+  ```
+
+- **Finding More Information with modinfo**
+
+  To learn more about any of the kernel modules, we can use the ```modinfo``` command.
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# modinfo bluetoot
+  ```
+
+- **Adding and Removing Modules with modprobe**
+
+  Most newer distributions of Linux, including Kali Linux, include the modprobe command for LKM management. To add a module to your kernel, you would use the modprobe command with the -a (add) switch, like so:
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# modprobe -a <module name>
+  ```
+
+  To remove a module, use the -r (remove) switch with modprobe followed by the name of the module:
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# modprobe -r <module name>
+  ```
+
+- **Test whether the new module loaded properly**
+
+  To test whether the new module loaded properly, you can run the dmesg command, which prints out the message buffer from the kernel, and then filter for "video" and look for any alerts that would indicate a problem:
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# dmesg | grep video
   ```
 
 ---
