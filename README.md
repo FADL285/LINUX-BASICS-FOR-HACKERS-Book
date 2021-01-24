@@ -1684,3 +1684,70 @@ Keyword  |  Equivalent
   ```
 
 ---
+
+# Chapter #17
+
+> you’ll learn core Python concepts, and you’ll script two hacking tools. a scanner to spy on TCP/IP connections, and a simple password cracker.
+
+<br />
+
+Basic scripting skills are critical to becoming a master hacker.
+
+Without having developed some basic scripting skills, a beginner hacker who simply uses tools created by someone else will be condemned to the realm of script kiddies. 
+
+This means that you will be limited to using tools developed by someone else
+
+<br />
+
+## ADDING PYTHON MODULES
+
+- **Using pip**
+  Python has a package manager specifically for installing and managing Python packages known as pip (Pip Installs Packages).
+
+  we need to install pip for python3 from kali repo by entering the following:
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# apt-get install python3-pip
+  ```
+
+  Now, to download modules from PyPI, you can simply enter this:
+  
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# pip3 install <package name>
+  ```
+
+<br />
+
+- **Installing Third-Party Modules**
+
+  To install a thirdparty module created by another member of the Python community, you can simply use ```wget``` to download it from wherever it is being stored online, **uncompress** the module, and then run the ```python setup.py install``` command.
+
+  Examble:
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# wget http://xael.org/norman/python/python-nmap/python-nmap-0.3.4.tar.gz
+
+  #Then uncompress the file 
+
+  ┌──(root💀Fadl)-[~]
+  └─# tar -xzf python-nmap-0.3.4.tar.gz
+
+  ┌──(root💀Fadl)-[~]
+  └─# cd python-nmap-.03.4/
+
+  ┌──(root💀Fadl)-[~]
+  └─# ~/python-nmap-0.3.4 >python setup.py install
+  ```
+
+## GETTING STARTED SCRIPTING WITH PYTHON
+
+You want to know **PYTHON** for learn it see [documention](https://docs.python.org/3.9/tutorial/index.html)
+
+---
+
+<br>
+
+## Finally, I would like to thank you for reading this summary
