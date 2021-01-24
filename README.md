@@ -22,6 +22,7 @@
 | [Chapter #13](#chapter-13) | BECOMING SECURE AND ANONYMOUS |
 | [Chapter #14](#chapter-14) | UNDERSTANDING AND INSPECTING WIRELESS NETWORKS |
 | [Chapter #15](#chapter-15) | MANAGING THE LINUX KERNEL AND LOADABLE KERNEL MODULES |
+| [Chapter #16](#chapter-16) | AUTOMATING TASKS WITH JOB SCHEDULING |
 
 ---
 
@@ -1628,6 +1629,58 @@ LKMs have access to the lowest levels of the kernel by necessity.
   ```shell
   ┌──(root💀Fadl)-[~]
   └─# dmesg | grep video
+  ```
+
+---
+
+# Chapter #16
+
+> you’ll learn essential scheduling skills in order to automate your hacking scripts.
+
+<br />
+
+In this chapter, you’ll learn more about how to use the ```cron``` daemon and ```crontab``` to set up scripts to run automatically, even while the system is unattended.
+
+You’ll also learn how to set up startup scripts that automatically run whenever the system is booted, which will provide you with the necessary services that you’ll need to run during your busy day of hacking.
+
+Linux Crontab Format:
+
+```shell
+MIN HOUR DOM MON DOW CMD
+```
+
+**Crontab Fields and Allowed Ranges (Linux Crontab Syntax)**
+
+Field  |  Description  |  Allowed Value
+-------| ------------- | --------------
+MIN    |  Minute field |   0 to 59
+HOUR   |  Hour field   |   0 to 23
+DOM    |  Day of Month |   1-31
+MON    |  Month field  |   1-12
+DOW    |  Day Of Week  |   0-6
+CMD    |  Command      |   Any command to be executed.
+
+<br />
+
+**Scheduling a Job For a Specific Time**
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# 30 08 10 06 * /home/maverick/full-backup
+  ```
+
+**Cron special keywords and its meaning**
+
+Keyword  |  Equivalent
+---------|-------------
+@yearly  |  0 0 1 1 *
+@daily   |  0 0 * * *
+@hourly  |  0 * * * *
+@reboot  |  Run at startup.
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# @yearly /home/maverick/bin/annual-maintenance
   ```
 
 ---
