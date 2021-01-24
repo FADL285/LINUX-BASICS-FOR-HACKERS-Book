@@ -20,6 +20,7 @@
 | [Chapter #11](#chapter-11) | THE LOGGING SYSTEM |
 | [Chapter #12](#chapter-12) | USING AND ABUSING SERVICES |
 | [Chapter #13](#chapter-13) | BECOMING SECURE AND ANONYMOUS |
+| [Chapter #14](#chapter-14) | UNDERSTANDING AND INSPECTING WIRELESS NETWORKS |
 
 ---
 
@@ -1406,5 +1407,123 @@ all traffic between you and the VPN device is encrypted, so even your internet s
 One way to prevent eavesdropping on your email is to use encrypted email.
 
 ProtonMail encrypts your email from end to end or browser to browser. This means that your email is encrypted on ProtonMail servers even the ProtonMail administrators can’t read your email.
+
+---
+
+# Chapter #14
+
+> This chapter will teach you how to deals with wireless networks. You’ll learn basic networking commands, then crack Wi­Fi access points and detect and connect to Bluetooth signals.
+
+<br />
+
+The ability to scan for and connect to other network devices from your system is crucial to becoming a successful hacker, and with wireless technologies like WiFi and Bluetooth becoming the standard, finding and controlling WiFi and Bluetooth connections is key.
+
+## WI-FI NETWORKS
+
+- **AP (access point)** This is the device wireless users connect to for internet access.
+
+- **ESSID (extended service set identifier)** This is the same as the SSID.
+
+- **BSSID (basic service set identifier)** This is the unique identifier of each AP, and it is the same as the MAC address of the device.
+
+- **SSID (service set identifier)** This is the name of the network.
+
+- **Channels** WiFi can operate on any one of 14 channels (1–14). In the United States, WiFi is limited to channels 1–11.
+
+- Power The closer you are to the WiFi AP, the greater the power, and the easier the connection is to crack.
+
+- **Security** This is the security protocol used on the WiFi AP that is being read from.
+  There are three primary security protocols for WiFi **(WEP, WPA, WPA2PSK)**
+
+- **Modes** WiFi can operate in one of three modes: managed, master, or monitor. You’ll learn what these modes mean in the following section.
+
+- **Wireless range** In the United States, a WiFi AP must legally broadcast its signal at an upper limit of 0.5 watts. At this power, it has a normal range of about 300 feet (100 meters).
+
+- **Frequency** WiFi is designed to operate on 2.4GHz and 5GHz. Modern WiFi APs and wireless network cards often use both.
+
+<br />
+
+## Commands
+
+- Display information about all network interfaces    currently in operation.
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# ifconfig
+  ```
+
+- If you just want to see your Wi­Fi interfaces and their statistics
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# iwconfig
+  ```
+
+- If you are not certain which WiFi AP you want to connect to, you can see all the wireless access points your network card can reach using the iwlist command.
+
+  ```shell
+  # Syntax: iwlist interface action
+
+  ┌──(root💀Fadl)-[~]
+  └─# iwlist wlan0 scan
+  ```
+
+- ```nmcli``` is a command-line tool which is used for controlling NetworkManager. ```nmcli``` commnad can also be used to display network device status, create, edit, activate/deactivate, and delete network connections.
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# nmcli dev wifi
+  ```
+
+- addition to displaying the WiFi APs info, nmcli can be used connect to APs.
+
+  ```shell
+  # Syntax: nmcli dev wifi connect AP-SSID password APpassword
+
+  ┌──(root💀Fadl)-[~]
+  └─# nmcli dev wifi connect Hackers password 12345678
+  ```
+
+- check whether theBluetooth adapter on the system we’re using is recognized and enabled so we can use it to scan for other devices.
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# hciconfig
+  ```
+
+- To check that the connection is enabled
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# hciconfig hci0 up
+  ```
+
+- Scanning for Bluetooth Devices
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# hcitool scan
+  ```
+
+- gather more information about the detected devices with the inquiry function
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# hcitool inq
+  ```
+
+- Scanning for Services with mac address ,able to pull information on all the services this device is capable of using.
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# sdptool browse 76:6E:46:63:72:66
+  ```
+
+- Seeing Whether the devices are reachable with l2ping using mac address
+
+  ```shell
+  ┌──(root💀Fadl)-[~]
+  └─# l2ping 76:6E:46:63:72:66 -c 4
+  ```
 
 ---
