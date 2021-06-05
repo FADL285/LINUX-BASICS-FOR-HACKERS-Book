@@ -1,4 +1,4 @@
-# CAT CyberSecurity Circle Linux Task
+# LINUX BASICS FOR HACKERS Book Summary - Task for CAT CyberSecurity Circle
 
 ![CAT Logo](img/icon.png)
 
